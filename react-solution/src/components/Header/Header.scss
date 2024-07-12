@@ -1,0 +1,32 @@
+.header {
+  position: sticky;
+  top: 0;
+  background-color: var(--black);
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo-link {
+    flex-shrink: 0;
+  }
+
+  &__logo {
+    background-color: var(--gray);
+    border-radius: 50%;
+    padding: .8rem;
+
+    &-icon {
+      color: var(--white);
+    }
+  }
+
+  &__text {
+    margin-left: var(--spacing-md);
+    text-align: right;
+
+    &-span {
+      font-weight: bold;
+    }
+  }
+}
