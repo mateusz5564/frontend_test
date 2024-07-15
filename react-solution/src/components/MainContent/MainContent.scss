@@ -1,7 +1,13 @@
+@use '../../scss/breakpoints' as b;
+
 .main {
   flex-grow: 1;
   background-color: var(--gray-blue);
   padding: var(--spacing-md);
+
+  @media (min-width: b.$breakpoint-md) {
+    padding: var(--spacing-xl);
+  }
 
   &__heading {
     margin-bottom: var(--spacing-xl);

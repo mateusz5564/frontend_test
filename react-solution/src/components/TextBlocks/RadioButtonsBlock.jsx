@@ -3,7 +3,7 @@ import "./RadioButtonsBlock.scss"
 
 const RadioButtonsBlock = () => {
   return (
-    <div classname="radio-buttons-block">
+    <div className="radio-buttons-block">
       <h2 className="radio-buttons-block__heading">Blok pierwszy</h2>
       <fieldset className="fieldset">
         <legend className="sr-only">Wybierz co chcesz dodać do bloku z tekstem</legend>

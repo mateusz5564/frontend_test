@@ -1,4 +1,20 @@
+@use '../../scss/breakpoints' as b;
+
 .action-buttons-block {
+  @media (min-width: b.$breakpoint-sm) {
+    flex-basis: 50%;
+    text-align: right;
+  }
+
+  @media (min-width: b.$breakpoint-md) {
+    flex-basis: 33.3%;
+    text-align: center;
+  }
+
+  @media (min-width: b.$breakpoint-xl) {
+    padding: 0 var(--spacing-md);
+  }
+  
   &__heading {
     font-size: var(--heading2);
     text-transform: uppercase;
@@ -10,13 +26,26 @@
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+
+    @media (min-width: b.$breakpoint-sm) {
+      align-items: end;
+    }
+
+    @media (min-width: b.$breakpoint-md) {
+      align-items: center;
+    }
+
+    @media (min-width: b.$breakpoint-xl) {
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 
   &__button {
-    flex: 0 0 auto;
     background-color: transparent;
     border: 1px solid var(--white-gray);
-    padding: var(--spacing-xs) var(--spacing-xl);
+    border-radius: 3px;
+    padding: .7rem 3rem;
     color: var(--white-gray);
     text-transform: uppercase;
     font-weight: bold;

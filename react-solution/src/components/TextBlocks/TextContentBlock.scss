@@ -1,4 +1,25 @@
+@use '../../scss/breakpoints' as b;
+
+
 .text-content-block {
+  @media (min-width: b.$breakpoint-sm) {
+    // this fixes heading issue related to nowrap and ellipsis,
+    // (todo: researcg subject and apply better solution if exists) 
+    width: 100%;
+  }
+
+  @media (min-width: b.$breakpoint-md) {
+    width: 33.3%;
+    flex-basis: 33.3%;
+  }
+
+  // center text somewhere in the middle between sm and md
+  @media (min-width: 42.1rem) {
+    max-width: 40.6rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+
   &__heading {
     font-size: var(--heading2);
     text-transform: uppercase;
@@ -10,7 +31,7 @@
   &__content {
     margin-top: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
-    font-size: var(--body2);
+    font-size: var(--body1);
     color: var(--white-gray);
     line-height: 1.1;
     text-align: center;

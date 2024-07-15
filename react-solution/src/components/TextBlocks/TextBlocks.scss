@@ -1,0 +1,8 @@
+@use '../../scss/breakpoints' as b;
+
+.text-blocks {
+  @media (min-width: b.$breakpoint-sm) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

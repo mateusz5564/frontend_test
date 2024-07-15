@@ -1,20 +1,28 @@
+@use "../../scss/breakpoints" as b;
+
 .footer {
   background-color: var(--gray-blue-dark);
   color: var(--gray);
   padding: var(--spacing-md);
   display: flex;
   justify-content: center;
-  gap: var(--spacing-md);
   align-items: center;
   flex-wrap: wrap;
+  gap: var(--spacing-md);
 
   @media (min-width: 23.5rem) {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
 
+  &__css-is-awesome-wrapper {
+    @media (min-width: b.$breakpoint-xl) {
+      flex-basis: 33%;
+    }
+  }
+
   &__css-is-awesome {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     width: 4.6rem;
     margin-right: 1.2rem;
@@ -25,16 +33,59 @@
     text-transform: uppercase;
   }
 
+  &__nabthat-wrapper {
+    @media (min-width: b.$breakpoint-xl) {
+      flex-basis: 33%;
+    }
+  }
+
+  &__nabthat {
+    display: none;
+
+    @media (min-width: b.$breakpoint-xl) {
+      flex-basis: 33%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 4rem;
+      height: 2px;
+      background-color: var(--gray);
+    }
+
+    &-text {
+      text-transform: lowercase;
+      font-size: var(--heading2);
+    }
+  }
+
+  &__button-wrapper {
+    @media (min-width: b.$breakpoint-xl) {
+      flex-basis: 33%;
+    }
+  }
+
   &__button {
+    margin-left: auto;
     display: flex;
-    flex-shrink: 0;
     align-items: center;
     background-color: transparent;
     border: 1px solid var(--gray);
-    padding: var(--spacing-xs) 4rem;
+    border-radius: 3px;
+    padding: 0.7rem 4rem;
     color: var(--white-gray);
     text-transform: uppercase;
     font-weight: bold;
+
+    @media (min-width: b.$breakpoint-xl) {
+      flex-basis: 33%;
+    }
 
     &-icon {
       margin-left: var(--spacing-sm);

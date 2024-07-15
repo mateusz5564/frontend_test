@@ -1,6 +1,5 @@
-@use 'reset';
-@use 'base';
-@use 'colors';
-@use 'spacings';
-@use 'typography';
-@use 'utils';
+@forward 'reset';
+@forward 'base';
+@forward 'colors';
+@forward 'spacings';
+@forward 'typography';
