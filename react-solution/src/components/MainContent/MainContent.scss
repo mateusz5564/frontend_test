@@ -1,4 +1,22 @@
 .main {
-  min-height: 150vh;
+  flex-grow: 1;
   background-color: var(--gray-blue);
+  padding: var(--spacing-md);
+
+  &__heading {
+    margin-bottom: var(--spacing-xl);
+
+    &-text {
+      font-size: var(--heading1);
+      font-weight: normal;
+      text-align: center;
+    }
+
+    &-line {
+      margin: 0 auto;
+      margin-top: var(--spacing-sm);
+      width: 10rem;
+    }
+  }
+  
 }

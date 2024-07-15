@@ -1,0 +1,44 @@
+.footer {
+  background-color: var(--gray-blue-dark);
+  color: var(--gray);
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (min-width: 23.5rem) {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  &__css-is-awesome {
+    display: inline-flex;
+    flex-direction: column;
+    width: 4.6rem;
+    margin-right: 1.2rem;
+    padding: var(--spacing-xs);
+    line-height: 1.2;
+    font-size: 1.1rem;
+    border: 1px solid var(--gray);
+    text-transform: uppercase;
+  }
+
+  &__button {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid var(--gray);
+    padding: var(--spacing-xs) 4rem;
+    color: var(--white-gray);
+    text-transform: uppercase;
+    font-weight: bold;
+
+    &-icon {
+      margin-left: var(--spacing-sm);
+      flex-shrink: 0;
+    }
+  }
+}
