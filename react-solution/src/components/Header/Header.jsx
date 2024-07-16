@@ -1,11 +1,10 @@
 import React from 'react'
-import { useContext } from 'react';
 import { FaHtml5 } from "react-icons/fa";
 import './Header.scss';
-import { AppContext } from '../../context/AppContext';
+import { useAppContext } from '../../context/AppContext';
 
 const Header = () => {
-  var { personalData } = useContext(AppContext);
+  var { personalData } = useAppContext();
 
   return (
     <header className='header'>

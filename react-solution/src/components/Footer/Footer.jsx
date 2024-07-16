@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import "./Footer.scss";
 import { FaChevronUp } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
-import { AppContext } from '../../context/AppContext';
+import { useAppContext } from '../../context/AppContext';
 
 const Footer = () => {
-  const { setPersonalData } = useContext(AppContext);
+  const { setPersonalData } = useAppContext();
 
   const handlePersonalDataClick = () => {
     setPersonalData("Mateusz Gawlak");
