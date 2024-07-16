@@ -10,7 +10,7 @@ const TextContentBlock = () => {
       <h2 className='text-content-block__heading'>Blok z długą nazwą, która sama się przytnie</h2>
       <p className='text-content-block__content'>
         {textBlocks && textBlocks.map(text => (
-          <span>
+          <span className='text-content-block__content-item' key={text}>
             {text}
           </span>
         ))}

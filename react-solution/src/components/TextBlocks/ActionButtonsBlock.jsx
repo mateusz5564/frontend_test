@@ -1,9 +1,10 @@
 import React from 'react'
 import "./ActionButtonsBlock.scss"
 import { useAppContext } from '../../context/AppContext'
+import { getOptionToReplace, getOptionToAppend } from './optionGetters'
 
 const ActionButtonsBlock = () => {
-  const { optionsRadioValue, textOptions, setTextBlocks } = useAppContext();
+  const { optionsRadioValue, textOptions, textBlocks, setTextBlocks } = useAppContext();
 
   const handleReplace = () => {
     const text = getOptionToReplace(optionsRadioValue, textOptions);
@@ -11,26 +12,20 @@ const ActionButtonsBlock = () => {
   }
 
   const handleAppend = () => {
-    console.log(optionsRadioValue);
-    // 1. get option that not exists yet, if it is not possible show alert
-    // 2. append it to textbock and order asc
-  }
+    const textToAppend = getOptionToAppend(optionsRadioValue, textOptions, textBlocks);
 
-  const getOptionToReplace = (radioValue, textOptions) => {
-    switch (radioValue) {
-      case "first":
-        return textOptions[0];
-
-      case "second":
-        return textOptions[1];
-
-      case "random":
-        const index = Math.floor(Math.random() * textOptions.length - 2) + 2;
-        return textOptions[index];
-
-      default:
-        throw new Error("Unhandled option");
+    if (!textToAppend) {
+      alert("Ten tekst już jest dodany, nie można dodawać duplikatów!");
+      return;
     }
+
+    setTextBlocks(state => {
+      var textBlocks = [...state];
+      textBlocks.push(textToAppend);
+      textBlocks.sort();
+
+      return textBlocks;
+    })
   }
 
   return (

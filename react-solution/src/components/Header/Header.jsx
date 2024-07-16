@@ -8,7 +8,7 @@ const Header = () => {
 
   return (
     <header className='header'>
-      <a href='/' className='header__logo-link'>
+      <a href='/' alt="home page" className='header__logo-link'>
         <div className='header__logo'>
           <FaHtml5 className='header__logo-icon' size={"2.5rem"} />
         </div>
