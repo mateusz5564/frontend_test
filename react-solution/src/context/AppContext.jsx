@@ -43,6 +43,7 @@ export const ContextProvider = ({ children }) => {
         textBlocks,
         setTextBlocks,
         textOptions,
+        setTextOptions,
         optionsRadioValue,
         setOptionsRadioValue
       }}>

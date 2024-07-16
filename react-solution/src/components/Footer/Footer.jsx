@@ -3,9 +3,17 @@ import "./Footer.scss";
 import { FaChevronUp } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
 import { useAppContext } from '../../context/AppContext';
+import defaultOptions from "../../context/defaultOptions.json";
 
 const Footer = () => {
-  const { setPersonalData } = useAppContext();
+  const { setPersonalData, setTextOptions, setTextBlocks, setOptionsRadioValue} = useAppContext();
+
+  const handleResetSettings = () => {
+    setPersonalData("");
+    setTextBlocks([]);
+    setTextOptions(defaultOptions);
+    setOptionsRadioValue("first");
+  }
 
   const handlePersonalDataClick = () => {
     setPersonalData("Mateusz Gawlak");
@@ -40,7 +48,7 @@ const Footer = () => {
           <li className='footer__options-list-item'>
             <button className='footer__options-button'>
               <FaChevronRight className='footer__options-button-icon' />
-              <span className='footer__options-button-text'>Zresetuj ustawienia</span>
+              <span className='footer__options-button-text' onClick={handleResetSettings}>Zresetuj ustawienia</span>
             </button>
           </li>
           <li className='footer__options-list-item'>
