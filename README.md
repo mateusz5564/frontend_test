@@ -10,6 +10,6 @@ node.js v20.15.1, npm 10.8.2
 
 Run this commands in react-solution folder:
 
-npm run build 
+```npm run build```
 
-npm run preview
+```npm run preview```
