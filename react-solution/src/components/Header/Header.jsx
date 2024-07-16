@@ -1,8 +1,12 @@
 import React from 'react'
+import { useContext } from 'react';
 import { FaHtml5 } from "react-icons/fa";
 import './Header.scss';
+import { AppContext } from '../../context/AppContext';
 
 const Header = () => {
+  var { personalData } = useContext(AppContext);
+
   return (
     <header className='header'>
       <a href='/' className='header__logo-link'>
@@ -10,7 +14,10 @@ const Header = () => {
           <FaHtml5 className='header__logo-icon' size={"2.5rem"} />
         </div>
       </a>
-      <p className='header__text'>Zadanie <span className='header__text-span'>rekrutacyjne</span></p>
+      <p className='header__text'>
+        Zadanie <span className='header__text-span'>rekrutacyjne</span>
+        <span className='header__text-personal-data'>{personalData}</span>
+      </p>
     </header>
   )
 }

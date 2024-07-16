@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./Footer.scss";
 import { FaChevronUp } from "react-icons/fa";
 import { FaChevronRight } from "react-icons/fa";
+import { AppContext } from '../../context/AppContext';
 
 const Footer = () => {
+  const { setPersonalData } = useContext(AppContext);
+
+  const handlePersonalDataClick = () => {
+    setPersonalData("Mateusz Gawlak");
+  }
+
   return (
     <footer className='footer'>
       <input type="checkbox" id="footer__checkbox" className='footer__checkbox' />
@@ -21,7 +28,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='footer__checkbox-wrapper'>
-          <label for="footer__checkbox" className='footer__checkbox-label'>
+          <label htmlFor="footer__checkbox" className='footer__checkbox-label'>
             <span className='footer__checkbox-label-text'>Pokaz</span>
             <FaChevronUp className='footer__checkbox-label-icon' />
           </label>
@@ -37,7 +44,7 @@ const Footer = () => {
             </button>
           </li>
           <li className='footer__options-list-item'>
-            <button className='footer__options-button'>
+            <button className='footer__options-button' onClick={handlePersonalDataClick}>
               <FaChevronRight className='footer__options-button-icon' />
               <span className='footer__options-button-text'>Pokaz dane osobowe</span>
             </button>
