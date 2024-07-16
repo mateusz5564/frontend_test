@@ -1,4 +1,4 @@
-@use '../../scss/breakpoints' as b;
+@use "../../scss/breakpoints" as b;
 
 .action-buttons-block {
   @media (min-width: b.$breakpoint-sm) {
@@ -14,7 +14,7 @@
   @media (min-width: b.$breakpoint-xl) {
     padding: 0 var(--spacing-md);
   }
-  
+
   &__heading {
     font-size: var(--heading2);
     text-transform: uppercase;
@@ -49,5 +49,10 @@
     color: var(--white-gray);
     text-transform: uppercase;
     font-weight: bold;
+
+    &:hover {
+      background: linear-gradient(to right, var(--orange), var(--light-orange));
+      color: var(--white);
+    }
   }
 }

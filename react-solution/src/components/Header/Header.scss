@@ -9,12 +9,18 @@
 
   &__logo-link {
     flex-shrink: 0;
+
+    &:hover .header__logo {
+      background-color: var(--orange);
+    }
   }
 
   &__logo {
     background-color: var(--gray);
     border-radius: 50%;
     padding: .8rem;
+    transition: background-color 300ms;
+
 
     &-icon {
       color: var(--white);

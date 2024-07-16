@@ -1,18 +1,24 @@
 @use "../../scss/breakpoints" as b;
 
 .footer {
-  background-color: var(--gray-blue-dark);
-  color: var(--gray);
-  padding: var(--spacing-md);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: var(--spacing-md);
+  position: relative;
 
-  @media (min-width: 23.5rem) {
-    flex-wrap: nowrap;
-    justify-content: space-between;
+  &__content {
+    background-color: var(--gray-blue-dark);
+    color: var(--gray);
+    padding: var(--spacing-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    position: relative;
+    z-index: 10;
+
+    @media (min-width: 23.5rem) {
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
   }
 
   &__css-is-awesome-wrapper {
@@ -22,6 +28,25 @@
   }
 
   &__css-is-awesome {
+    position: relative;
+
+    &:hover::before {
+      border-color: var(--orange);
+      transform: rotate(360deg);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 1px solid var(--gray);
+      transition: all 1s;
+    }
+
     display: flex;
     flex-direction: column;
     width: 4.6rem;
@@ -29,7 +54,6 @@
     padding: var(--spacing-xs);
     line-height: 1.2;
     font-size: 1.1rem;
-    border: 1px solid var(--gray);
     text-transform: uppercase;
   }
 
@@ -65,31 +89,89 @@
     }
   }
 
-  &__button-wrapper {
+  &__checkbox-wrapper {
+    display: flex;
+    justify-content: flex-end;
+
     @media (min-width: b.$breakpoint-xl) {
       flex-basis: 33%;
     }
   }
 
-  &__button {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    background-color: transparent;
-    border: 1px solid var(--gray);
-    border-radius: 3px;
-    padding: 0.7rem 4rem;
-    color: var(--white-gray);
-    text-transform: uppercase;
-    font-weight: bold;
+  &__checkbox {
+    display: none;
 
-    @media (min-width: b.$breakpoint-xl) {
-      flex-basis: 33%;
+    &:checked ~ .footer__options {
+      transform: translateY(-100%);
+      opacity: 1;
     }
 
-    &-icon {
-      margin-left: var(--spacing-sm);
-      flex-shrink: 0;
+    &:checked ~ .footer__content .footer__checkbox-label-icon {
+      transform: rotate(180deg);
+    }
+
+    &-label {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      background-color: transparent;
+      border: 1px solid var(--gray);
+      border-radius: 3px;
+      padding: 0.7rem 4rem;
+      color: var(--white-gray);
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+
+      @media (min-width: b.$breakpoint-xl) {
+        flex-basis: 33%;
+      }
+
+      &-icon {
+        margin-left: var(--spacing-sm);
+        flex-shrink: 0;
+        transition: transform 300ms;
+      }
+    }
+  }
+
+  &__options {
+    position: absolute;
+    right: var(--spacing-md);
+    top: 0;
+    background-color: var(--white);
+    padding: var(--spacing-md);
+    box-shadow: 0px 1px 10px 3px var(--black);
+    border-radius: 3px;
+    opacity: 0;
+    transition: all 300ms;
+
+    &-list-item {
+      &:first-child {
+        margin-bottom: var(--spacing-sm);
+      }
+    }
+
+    &-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    &-button {
+      font-size: var(--body2);
+      font-weight: 500;
+      background-color: transparent;
+      border: none;
+      text-transform: uppercase;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      transition: color 300ms;
+
+      &:hover {
+        color: var(--orange);
+      }
     }
   }
 }
